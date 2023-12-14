@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./styles/inicio.css">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <header>
+      <nav>
+          <div class="mobile-menu">
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+          </div>
+          
+          <div id="title">
+            <a class="atitulo" href="index.html"><h1>Eco<span class="EC">Clima</span></h1></a>
+        </div>
+          <ul class="nav-list">
+              <a href="Inicio.html"><li class="efect">Início</li></a>
+              <a href="login.html"><button>
+                Cadastre-se
+              </button></a>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+        <aside>
+            <h2><span id="Sub">Seja Bem Vindo</span></h2>
+            <h2 id="sub">Ao Nosso Conteúdo</h2>
+            <p>
+                Bem-vindo à Eco Clima, sua fonte confiável de conhecimento e ação em prol do meio ambiente. Nosso propósito é claro: informar e educar sobre as mudanças climáticas que impactam nosso planeta. Acreditamos que a conscientização é o primeiro passo para a transformação, e é por isso que estamos aqui para guiá-lo nessa jornada.
+            </p>
+        </aside>
+
+        <article>
+            <img src="./components/images/feeling-the-heat-ai-brush-removebg-xefqa29u.png" alt="">
+        </article>
+    </main>
+    
+    <script>
+      class MobileNavbar {
+      constructor(mobileMenu, navList, navLinks) {
+        this.mobileMenu = document.querySelector(mobileMenu);
+        this.navList = document.querySelector(navList);
+        this.navLinks = document.querySelectorAll(navLinks);
+        this.activeClass = "active";
+    
+        this.handleClick = this.handleClick.bind(this);
+      }
+    
+      animateLinks() {
+        this.navLinks.forEach((link, index) => {
+          link.style.animation
+            ? (link.style.animation = "")
+            : (link.style.animation = `navLinkFade 0.5s ease forwards ${
+                index / 7 + 0.3
+              }s`);
+        });
+      }
+    
+      handleClick() {
+        this.navList.classList.toggle(this.activeClass);
+        this.mobileMenu.classList.toggle(this.activeClass);
+        this.animateLinks();
+      }
+    
+      addClickEvent() {
+        this.mobileMenu.addEventListener("click", this.handleClick);
+      }
+    
+      init() {
+        if (this.mobileMenu) {
+          this.addClickEvent();
+        }
+        return this;
+      }
+    }
+    
+    const mobileNavbar = new MobileNavbar(
+      ".mobile-menu",
+      ".nav-list",
+      ".nav-list li",
+    );
+    mobileNavbar.init();
+  </script>
+
+    
+</body>
+</html>

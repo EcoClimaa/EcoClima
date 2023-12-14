@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+    <link rel="stylesheet" href="./styles/inicio.css">
+    <link rel="stylesheet" href="./styles/fonts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+
+    <header>
+      <nav>
+          <div class="mobile-menu">
+              <div class="line1"></div>
+              <div class="line2"></div>
+              <div class="line3"></div>
+          </div>
+          
+          <div id="title">
+            <a class="atitulo" href="index.html"><h1>Eco<span class="EC">Clima</span></h1></a>
+        </div>
+          <ul class="nav-list">
+
+            <a href="Inicio.html"><li class="efect">Voltar</li></a>
+        
+        </a>
+        <button>
+          Cadastre-se
+        </button>
+      </ul>
+    </nav>
+  </header>
+  <main>
+
+    <p> Ao se cadastrar conosco, você não apenas terá acesso a informações valiosas sobre as mudanças climáticas, mas
+      também se tornará parte de uma comunidade comprometida com a sustentabilidade. Estamos prontos para agir, e
+      queremos que você faça parte dessa iniciativa. Ao se inscrever, receberá mensagens personalizadas sobre mudanças
+      climáticas extremas, capacitando-o a tomar medidas proativas para proteger nosso planeta.
+
+      Junte-se a nós na Eco Clima e faça a diferença. Cada pequena ação conta, e juntos podemos criar um impacto
+      significativo para um futuro mais sustentável.
+    </p>
+<br><br><br><br>
+<div class="formulario">
+    <form action="https://formsubmit.co/eco.clima@outlook.com" method="POST" class="form">
+      <h1 class="cor">Formulário de Contato</h1>
+      
+          <label for="name">Nome</label>
+          <input type="text" name="name" id="name" placeholder="Nome" required />
+          <br>
+          <label for="email">E-mail</label>
+          <input type="email" name="email" id="email" placeholder="E-mail" required />
+          <br>
+          <br>
+          <label for="email">Estado</label>
+          <input type="text" name="estado" id="estado" placeholder="Estado" required />
+          <br>
+          <label for="message">Feedback</label>
+          <br>
+          <textarea name="message" id="message" placeholder="Mensagem" required></textarea>
+          <input type="hidden" name="_captcha" value="false" />
+
+          <button type="submit">Enviar</button>
+      </form>
+    </div>
+          <script src="js/app1.js"></script>
+  </main>
+
+
+
+
+
+  <script>
+    class MobileNavbar {
+      constructor(mobileMenu, navList, navLinks) {
+        this.mobileMenu = document.querySelector(mobileMenu);
+        this.navList = document.querySelector(navList);
+        this.navLinks = document.querySelectorAll(navLinks);
+        this.activeClass = "active";
+
+        this.handleClick = this.handleClick.bind(this);
+      }
+
+      animateLinks() {
+        this.navLinks.forEach((link, index) => {
+          link.style.animation
+            ? (link.style.animation = "")
+            : (link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3
+              }s`);
+        });
+      }
+
+      handleClick() {
+        this.navList.classList.toggle(this.activeClass);
+        this.mobileMenu.classList.toggle(this.activeClass);
+        this.animateLinks();
+      }
+
+      addClickEvent() {
+        this.mobileMenu.addEventListener("click", this.handleClick);
+      }
+
+      init() {
+        if (this.mobileMenu) {
+          this.addClickEvent();
+        }
+        return this;
+      }
+    }
+
+    const mobileNavbar = new MobileNavbar(
+      ".mobile-menu",
+      ".nav-list",
+      ".nav-list li",
+    );
+    mobileNavbar.init();
+  </script>
+
+</body>
+
+</html>
